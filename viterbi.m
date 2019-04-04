@@ -19,5 +19,25 @@ k = size(A,1);  % number of possible states
 qstar = zeros(1,T);
 
 %Your code goes here
+% Initialization
+delta = zeros(T,k);
+delta(1,:) = phi.*B(O(1),:);
+trident = zeros(T,k);
+
+% Recursion
+for j=1:k
+	for t=2:T
+		delta(t,j) = max(delta(t-1,:) .* A(:,j)' * B(O(t),j));
+		[maxval,trident(t,j)] = max(delta(t-1,:) .* A(:,j)');
+	end
+end
+
+[maxval,qstar(1)] = max(delta(T,:));
+
+for t=T-1:-1:1
+	t+1
+	qstar(t+1)
+	qstar(t) = trident(t+1,qstar(t+1));
+end
 
 end

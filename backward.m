@@ -19,8 +19,14 @@ k = size(A,1);  % number of possible states
 beta = zeros(T, k);
 
 
-%Your code goes here 
-
+%Your code goes here
+% First row entry
+beta(T,:) = [1 1]; 
+for i=1:k 
+  for t=T-1:-1:1
+    beta(t,i) = sum(A(i,:) .* B(O(t+1),:) .* beta(t+1,:));
+  endfor
+endfor
 
 
 end

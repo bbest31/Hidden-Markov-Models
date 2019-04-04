@@ -26,12 +26,10 @@ P = zeros(T,1);
 for i=1:k
 	% First row entry
 	alpha(1,i) = phi(i) * B(O(1),i); 
-  for t=2:T
-  	% Calculate alpha(t+1,i)
-    alpha(t,i) = sum(alpha(t-1,:) .* A(:,i)') * B(O(t),i);
-  endfor
+  	for t=2:T
+  		% Calculate alpha(t+1,i)
+    	alpha(t,i) = sum(alpha(t-1,:) .* A(:,i)') * B(O(t),i);
+    endfor
 endfor
-
 P = sum(alpha,2)';
-
 end
