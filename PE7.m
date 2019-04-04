@@ -28,7 +28,7 @@ phi_0 = [0.5 0.5];
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Your code here for (a)
 % Modify this variable as needed.
-phi_a = [0, 0];
+phi_a = [1/6, 1/25];
 
 
 % Complete the file forward.m
