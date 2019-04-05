@@ -51,9 +51,10 @@ P_b = alpha(:,2);
 % gamma is needed here (See Eqn 27 in Rabiner 1989 for details)
 % Modify this variable as needed.
 P_c = zeros(10,1);
-for i=1:10
-	P_c(i) =  (alpha(i,2) * beta(i,2))/sum(alpha(:,2) .* beta(:,2));
+for t = 1:10
+	P_c(t) =  (alpha(t,2) * beta(t,2))/sum(alpha(t,2) * beta(t,2));
 end
+
 % (d): q_star = argmax_d P(D=d | O_1:10)
 % use viterbi algorithm
 % Complete the file viterbi.m

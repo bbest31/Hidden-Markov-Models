@@ -21,7 +21,7 @@ qstar = zeros(1,T);
 %Your code goes here
 % Initialization
 delta = zeros(T,k);
-delta(1,:) = phi.*B(O(1),:);
+delta(1,:) = phi .* B(O(1),:);
 trident = zeros(T,k);
 
 % Recursion
