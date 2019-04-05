@@ -25,18 +25,18 @@ delta(1,:) = phi .* B(O(1),:);
 trident = zeros(T,k);
 
 % Recursion
-for j=1:k
-	for t=2:T
-		delta(t,j) = max(delta(t-1,:) .* A(:,j)' * B(O(t),j));
-		[maxval,trident(t,j)] = max(delta(t-1,:) .* A(:,j)');
+for t=2:T
+	for j=1:k
+		delta(t,j) = max(delta(t-1,:) .* A(:,j)') * B(O(t),j);
+		[max_value, trident(t,j)] = max(delta(t-1,:) .* A(:,j)');
 	end
 end
 
-[maxval,qstar(1)] = max(delta(T,:));
+% Termination
+[maxval,qstar(10)] = max(delta(T,:));
 
+% Backtracking
 for t=T-1:-1:1
-	t+1
-	qstar(t+1)
 	qstar(t) = trident(t+1,qstar(t+1));
 end
 

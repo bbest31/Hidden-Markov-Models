@@ -52,7 +52,7 @@ P_b = alpha(:,2);
 % Modify this variable as needed.
 P_c = zeros(10,1);
 for t = 1:10
-	P_c(t) =  (alpha(t,2) * beta(t,2))/sum(alpha(t,2) * beta(t,2));
+	P_c(t) = (alpha(t,2) * beta(t,2))/sum(alpha(t,2) * beta(t,2));
 end
 
 % (d): q_star = argmax_d P(D=d | O_1:10)
@@ -63,7 +63,9 @@ qstar = zeros(1,10);
 
 % (e): P_+L(O_1:10) and P_-L(O_1:10)
 % Modify these variable as needed.
-prob_watch = 0;		% P_+L(O_1:10)
-prob_not_watch = 0;	% P_-L(O_1:10)
+L = [0.75, 0.25; ...
+     0.05, 0.95];
+[dummy_alpha, prob_watch] = forward(O,phi_a,L,B); % P_+L(O_1:10)
+prob_not_watch = P_O;% P_-L(O_1:10)
 
 end

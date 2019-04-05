@@ -31,5 +31,5 @@ for i=1:k
     	alpha(t,i) = sum(alpha(t-1,:) .* A(:,i)') * B(O(t),i);
     endfor
 endfor
-P = sum(alpha,2)';
+P = sum(alpha,2);
 end
